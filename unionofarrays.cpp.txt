@@ -1,0 +1,76 @@
+// unionofarrays.cpp : Defines the entry point for the console application.
+//04162213042(Humna Gul)
+//04162213018(Rubab Zahra)
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+	const int MaxSize = 50;
+	int A[MaxSize];
+	int csizeA;
+	cout<<"Enter the size of the array A:";
+	cin>>csizeA;
+	int i=0;
+	while(i<csizeA)
+	{
+		cout<<"Enter elements "<<i+1<<" of array A:";
+		cin>>A[i];
+		i++;
+	}
+	int B[MaxSize];
+	int csizeB;
+	cout<<"Enter the size of the array B:";
+	cin>>csizeB;
+	i=0;
+	while(i<csizeB)
+	{
+		cout<<"Enter the elements "<<i+1<<" of array B:";
+		cin>>B[i];
+		i++;
+	}
+	int C[MaxSize] = {0};
+	int csizeC=0;
+	cout<<"Union of set A and B :";
+	i=0;
+	while(i<csizeA)
+	{
+		C[csizeC]=A[i];
+		cout<<C[csizeC]<<endl;
+		csizeC=csizeC+1;
+		i++;
+	}
+	i=0;
+	/*Here loop done two work done 
+	1.Check that element i of B present in A.
+	2.If not present in A add that element to C.*/
+
+	while(i<csizeB)
+	{
+		int j=0, c=-1;
+		while(j<csizeA)
+		{
+			if(B[i]==A[j])
+			{
+				c=0;
+				break;
+			}
+			j++;
+		}
+		if(c==-1)
+		{
+			C[csizeC]=B[i];
+			cout<<C[csizeC]<<endl;
+			csizeC=csizeC + 1;
+		}
+		i++;
+	}
+	system("pause");
+
+	system("pause");
+	return 0;
+}
+
